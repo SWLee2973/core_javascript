@@ -7,3 +7,5 @@ ___
 
 ### Basic
 - [x] Code Structure [바로가기](https://www.naver.com)
+- [ ] Code Structure [바로가기](https://www.naver.com)
+- [ ] Code Structure [바로가기](https://www.naver.com)
