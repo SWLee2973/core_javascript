@@ -6,39 +6,76 @@
 // //default export (기본 내보내기) -> 이름
 // import clearContents from "./lib/dom/clear.js";
 
-import {getNode, clearContents, insertLast} from './lib/index.js';
+import {getNode, clearContents, insertLast, getNodes} from './lib/index.js';
 
 
-const first = getNode('#firstNumber');
-const second = getNode('#secondNumber');
-const clear = getNode('#clear');
+
+
+function phase1() {
+
+  const first = getNode('#firstNumber');
+  const second = getNode('#secondNumber');
+  const clear = getNode('#clear');
+  const result = getNode('.result');
+  let total = 0;
+
+  
+  function handleCalculate() {
+
+    const firstValue = +first.value;
+    const secondValue = +second.value;
+    
+    if(typeof firstValue !== 'number' || 
+        typeof secondValue !== 'number') return;
+    total = firstValue + secondValue;
+  
+    
+    // result.innerHTML = resultValue;
+    clearContents(result);
+    insertLast (result, total);
+  
+  }
+  
+  function handleClear(e) {
+    e.preventDefault();
+  
+    clearContents(first);
+    clearContents(second);
+  
+    result.textContent = '-';
+  }
+  
+  first.addEventListener('input', handleCalculate);
+  second.addEventListener('input', handleCalculate);
+  clear.addEventListener('click', handleClear);
+}
+
+
+const calculator = getNode('.calculator');
 const result = getNode('.result');
-let total = 0;
+const clear = getNode('#clear');
+const numberInputs = Array.from(getNodes('input:not(#clear)'));
 
-function handleCalculate() {
 
-  const firstValue = +first.value;
-  const secondValue = +second.value;
-  
-  if(typeof firstValue !== 'number' || 
-      typeof secondValue !== 'number') return;
-  total = firstValue + secondValue;
 
-  
-  // result.innerHTML = resultValue;
-  clearContents(result);
-  insertLast (result, total);
+function handleInput(){
 
+  const total = numberInputs.reduce((acc,cur)=> acc + Number(cur.value) ,0);
+
+  clearContents(result)
+  insertLast(result,total);
 }
 
-function handleClear(e) {
+
+function handleClear(e){
+
   e.preventDefault();
+  
+  numberInputs.forEach(clearContents);
+  result.textContent = '-'
 
-  clearContents(first);
-  clearContents(second);
-  clearContents(result);
 }
 
-first.addEventListener('input', handleCalculate);
-second.addEventListener('input', handleCalculate);
-clear.addEventListener('click', handleClear);
+
+calculator.addEventListener('input',handleInput);
+clear.addEventListener('click',handleClear);
