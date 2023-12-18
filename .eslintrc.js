@@ -5,6 +5,13 @@ module.exports = {
         "node": true
     },
     "extends": "eslint:recommended",
+    "globals": {
+        "getNode": true,
+        "getNodes": true,
+        "addClass": true,  
+        "removeClass": true,
+        "toggleClass": true
+    },
     "overrides": [
         {
             "env": {

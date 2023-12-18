@@ -6,33 +6,41 @@
   <title>범쌤과 함께하는 자바스크립트</title>
   <link rel="icon" href="./assets/tiger.svg" type="image/x-icon" />
   <link rel="stylesheet" href="./style.css" />
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
   <script src="./lib/utils/typeOf.js"></script>
-  <script src="./chapter/core/21.tryCatch.js" defer></script>
+  <script src="./lib/dom/getNode.js" defer></script>
+  <script src="./lib/dom/insert.js" defer></script>
+  <script src="./lib/dom/css.js" defer></script>
+  <script src="./chapter/dom/09.delegation.js" defer></script>
+  <!-- <script src="./chapter/core/21.tryCatch.js" defer></script> -->
   <!-- <script src="./chapter/dom/0.homework.js" defer></script> -->
 </head>
 <body>
 
-  <h1>
-    <span class="first">hello</span>
-    <span class="second">hi</span>
-    <!--주석-->
-    <span class="third">javascript</span>
+<!-- <div class="ground">
+  <img src="https://en.js.cx/clipart/ball.svg" id="ball" alt="축구공">
+</div> -->
 
-    <hr />
+<!-- <section>
+  <article>
+    <p>
+      <ul>
+        <li>
+          list
+          <a href="#">link</a>
+        </li>
+      </ul>
+    </p>
+  </article>
+</section> -->
 
-    <div>
-      <label for="todo">할일</label>
-      <input type="text" id="todo" />
-      <button class="register">등록</button>
-  
-      <h4>해야할 목록</h4>
-      <ul class="todoList"></ul>
-    </div>
-  </h1>
+<nav>
+  <ul>
+    <li class="about" data-name="about">😀ABOUT</li>
+    <li class="home" data-name="home">🏠HOME</li>
+    <li class="contact" data-name="contact">📞CONTACT</li>
+  </ul>
+</nav>
 
-  <div class="menu"></div>
-  <a href="/" class="menu-button">❎</a>
-  
 </body>
 </html>
